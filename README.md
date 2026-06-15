@@ -14,26 +14,35 @@ Sistema de evaluación de riesgo crediticio basado en Random Forest implementado
 ## Estructura del proyecto
 
 
-## Instalación y ejecución
+### Instalación y ejecución
 
-### 1. Backend (FastAPI)
+### 1. Backend 
 
-# Ingresar a la carpeta del backend
+#### Ingresar a la carpeta del backend
 cd backend
 
-# Crear entorno virtual
+#### Crear entorno virtual
 python -m venv venv
 
-# Activar entorno virtual (Windows)
+#### Activar entorno virtual (Windows)
 venv\Scripts\activate
 
-# Instalar dependencias
+#### Instalar dependencias
 pip install fastapi uvicorn python-multipart
 
-# Ejecutar el servidor
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+#### Ejecutar el servidor
+python -m uvicorn app.main:app --reload
 
-cd backend
-python probar_motor.py
+### 2. Frontend
+
+#### Abrir una nueva terminal e ingresar a la carpeta del frontend
+cd frontend
+
+#### Instalar dependencias
+npm install
+
+#### Ejecutar la aplicación
+npm run dev
+
 
 
