@@ -1,0 +1,90 @@
+{
+    "model_id": "1ddac0a5-2c89-4e37-ba75-5e51cba65709",
+    "dataset_type": "freelancers",
+    "filename": "freelancers.csv",
+    "algorithm": "kmeans",
+    "total_records": 6000,
+    "total_features": 37,
+    "clusters_found": 3,
+    "noise_points": 0,
+    "metrics": {
+        "silhouette_score": 0.206657985798474,
+        "davies_bouldin_score": 1.6191783489070468,
+        "calinski_harabasz_score": 2321.2955733185768
+    },
+    "interpretation": "El modelo presenta separación débil entre clusters. Silhouette=0.207, Davies-Bouldin=1.619, Calinski-Harabasz=2321.296.",
+    "pca_explained_variance": [
+        0.42687658054668653,
+        0.11677636047900176
+    ],
+    "pca_total_explained_variance": 0.5436529410256883,
+    "reduction_method": "pca",
+    "label_distribution": {
+        "0": 2526,
+        "1": 1320,
+        "2": 2154
+    },
+    "top_terms": {},
+    "segment_names": {
+        "0": "Bajo on time delivery rate / Bajo rating",
+        "1": "Alto completed projects / Alto experience years",
+        "2": "Bajo response time hours / Alto on time delivery rate"
+    },
+    "text_column": null,
+    "numeric_columns": [
+        "hourly_rate",
+        "experience_years",
+        "rating",
+        "completed_projects",
+        "on_time_delivery_rate",
+        "response_time_hours",
+        "profile_views",
+        "repeat_client_rate"
+    ],
+    "categorical_columns": [
+        "skill_category",
+        "country",
+        "english_level",
+        "availability",
+        "platform_badge"
+    ],
+    "feature_names": [
+        "numeric__hourly_rate",
+        "numeric__experience_years",
+        "numeric__rating",
+        "numeric__completed_projects",
+        "numeric__on_time_delivery_rate",
+        "numeric__response_time_hours",
+        "numeric__profile_views",
+        "numeric__repeat_client_rate",
+        "categorical__skill_category_copywriting",
+        "categorical__skill_category_customer_support",
+        "categorical__skill_category_data_analysis",
+        "categorical__skill_category_digital_marketing",
+        "categorical__skill_category_graphic_design",
+        "categorical__skill_category_machine_learning",
+        "categorical__skill_category_mobile_development",
+        "categorical__skill_category_web_development",
+        "categorical__country_Argentina",
+        "categorical__country_Chile",
+        "categorical__country_Colombia",
+        "categorical__country_Costa Rica",
+        "categorical__country_El Salvador",
+        "categorical__country_Guatemala",
+        "categorical__country_Mexico",
+        "categorical__country_Peru",
+        "categorical__english_level_advanced",
+        "categorical__english_level_basic",
+        "categorical__english_level_intermediate",
+        "categorical__english_level_native",
+        "categorical__availability_full_time",
+        "categorical__availability_limited",
+        "categorical__availability_part_time",
+        "categorical__availability_weekends",
+        "categorical__platform_badge_expert_vetted",
+        "categorical__platform_badge_none",
+        "categorical__platform_badge_rising_talent",
+        "categorical__platform_badge_top_rated",
+        "categorical__platform_badge_verified"
+    ]
+}
