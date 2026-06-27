@@ -69,12 +69,11 @@ function EvaluationPage() {
         </div>
       </Card>
 
-      <div className="grid-2">
-        <MetricsCards model={selectedModel} />
-        <MetricsExplanation />
-      </div>
+      <MetricsCards model={selectedModel} />
 
       <MetricsComparisonChart models={models} />
+
+      <MetricsExplanation model={selectedModel} />
 
       <Card
         title="Comparación de modelos entrenados"

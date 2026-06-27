@@ -1,48 +1,51 @@
 import Card from "../ui/Card";
 
-function MetricsExplanation() {
+function getSilhouetteMessage(value) {
+  if (value === null || value === undefined) {
+    return "No fue posible calcular el Silhouette del modelo seleccionado.";
+  }
+
+  if (value >= 0.7) {
+    return "Los segmentos presentan una separacion muy buena.";
+  }
+
+  if (value >= 0.5) {
+    return "Los segmentos presentan una buena separacion.";
+  }
+
+  if (value >= 0.25) {
+    return "Los segmentos presentan una separacion moderada.";
+  }
+
+  return "Los segmentos presentan una separacion debil.";
+}
+
+function MetricsExplanation({ model }) {
+  const silhouette = model?.metrics?.silhouette_score;
+
   return (
     <Card
-      title="Interpretación de métricas"
-      description="Guía rápida para explicar los resultados durante la defensa."
+      title="Interpretacion"
+      description="Lectura rapida del modelo seleccionado basada en el Silhouette Score."
     >
-      <div className="explanation-list">
-        <div className="explanation-item">
-          <h4>Silhouette Score</h4>
-          <p>
-            Evalúa qué tan parecido es un registro a su propio cluster en
-            comparación con otros clusters. Su valor suele estar entre -1 y 1.
-            Mientras más cercano a 1, mejor separación existe.
-          </p>
+      <div className="interpretation-box">
+        <div className="interpretation-value">
+          <span>Silhouette del modelo</span>
+          <strong>
+            {silhouette === null || silhouette === undefined
+              ? "No disponible"
+              : Number(silhouette).toFixed(4)}
+          </strong>
         </div>
 
-        <div className="explanation-item">
-          <h4>Davies-Bouldin Score</h4>
-          <p>
-            Evalúa la relación entre compactación interna y separación entre
-            clusters. En esta métrica, un valor menor normalmente indica mejor
-            agrupamiento.
-          </p>
-        </div>
+        <p className="interpretation-message">
+          {getSilhouetteMessage(silhouette)}
+        </p>
 
-        <div className="explanation-item">
-          <h4>Calinski-Harabasz Score</h4>
-          <p>
-            Compara la dispersión entre clusters contra la dispersión dentro de
-            cada cluster. Mientras más alto sea, mejor suele ser la separación.
-            Es útil principalmente para comparar varias configuraciones.
-          </p>
-        </div>
-
-        <div className="explanation-item">
-          <h4>Validación práctica</h4>
-          <p>
-            Además de las métricas, se debe revisar si los segmentos tienen una
-            interpretación útil: por ejemplo, freelancers premium, perfiles de
-            bajo costo, reseñas positivas, reseñas con problemas de entrega o
-            comunicación.
-          </p>
-        </div>
+        <p className="interpretation-note">
+          Esta lectura complementa las metricas actuales y sirve como resumen
+          rapido para la seleccion final del modelo.
+        </p>
       </div>
     </Card>
   );

@@ -11,6 +11,16 @@ import {
 
 import Card from "../ui/Card";
 
+const CLUSTER_COLORS = [
+  "#2563eb",
+  "#16a34a",
+  "#dc2626",
+  "#9333ea",
+  "#f59e0b",
+  "#0891b2",
+  "#be123c",
+];
+
 function groupPointsByCluster(points) {
   const groups = {};
 
@@ -30,6 +40,18 @@ function groupPointsByCluster(points) {
   });
 
   return groups;
+}
+
+function getClusterColor(cluster) {
+  const clusterNumber = Number(cluster);
+
+  if (clusterNumber === -1) {
+    return "#64748b";
+  }
+
+  return CLUSTER_COLORS[
+    Math.abs(clusterNumber) % CLUSTER_COLORS.length
+  ];
 }
 
 function CustomTooltip({ active, payload }) {
@@ -59,6 +81,9 @@ function PCAChart({ data }) {
   }
 
   const groupedPoints = groupPointsByCluster(data.points);
+  const sortedClusters = Object.entries(groupedPoints).sort(
+    ([clusterA], [clusterB]) => Number(clusterA) - Number(clusterB)
+  );
 
   return (
     <Card
@@ -97,11 +122,12 @@ function PCAChart({ data }) {
             <Tooltip content={<CustomTooltip />} />
             <Legend />
 
-            {Object.entries(groupedPoints).map(([cluster, points]) => (
+            {sortedClusters.map(([cluster, points]) => (
               <Scatter
                 key={cluster}
                 name={`Cluster ${cluster}`}
                 data={points}
+                fill={getClusterColor(cluster)}
               />
             ))}
           </ScatterChart>

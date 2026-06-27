@@ -9,6 +9,7 @@ import Alert from "../components/ui/Alert";
 import PCAChart from "../components/analysis/PCAChart";
 import ClusterProfiles from "../components/analysis/ClusterProfiles";
 import CrossSegmentTable from "../components/analysis/CrossSegmentTable";
+import FrequentTermsCard from "../components/analysis/FrequentTermsCard";
 
 import {
   getPcaAnalysis,
@@ -166,6 +167,10 @@ function InterpretationPage() {
         <PCAChart data={pcaData} />
         <ClusterProfiles data={profilesData} />
       </div>
+
+      {profilesData?.dataset_type === "reviews" && (
+        <FrequentTermsCard data={profilesData} />
+      )}
 
       <Card
         title="Cruce entre segmentos"

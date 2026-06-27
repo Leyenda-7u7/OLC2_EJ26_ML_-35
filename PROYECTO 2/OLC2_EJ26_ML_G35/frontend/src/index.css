@@ -609,6 +609,42 @@ select {
   font-size: 15px;
 }
 
+.terms-fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+}
+
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 16px;
+  padding: 16px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(22, 163, 74, 0.08), transparent 35%),
+    #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.word-cloud-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  line-height: 1.1;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
 .categorical-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -770,6 +806,66 @@ select {
   line-height: 1.5;
 }
 
+.line-chart-hint {
+  margin: 16px 0 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.pdf-line-chart-shell {
+  padding: 14px;
+  border: 1px solid #d1d5db;
+  background: #fafafa;
+}
+
+.pdf-line-chart-frame {
+  padding: 16px 18px 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+}
+
+.interpretation-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.interpretation-value {
+  padding: 16px;
+  border-radius: 18px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.interpretation-value span {
+  display: block;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.interpretation-value strong {
+  display: block;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  color: #1e3a8a;
+}
+
+.interpretation-message {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #0f172a;
+}
+
+.interpretation-note {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
 @media (max-width: 850px) {
   .chart-controls {
     grid-template-columns: 1fr;
@@ -870,6 +966,74 @@ select {
   gap: 16px;
 }
 
+.export-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 20px;
+}
+
+.export-option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.export-option-item {
+  display: block;
+  padding: 16px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.export-option-item:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+.checkbox-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.checkbox-row input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.checkbox-row strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #0f172a;
+}
+
+.checkbox-row p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.export-model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.export-panel-card {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 .export-model-summary {
   padding: 16px;
   border-radius: 18px;
@@ -924,6 +1088,46 @@ select {
   gap: 16px;
 }
 
+.export-format-box {
+  padding: 16px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.export-format-box h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.export-format-box p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.export-format-box p + p {
+  margin-top: 10px;
+}
+
+.export-confirmation-box {
+  padding: 16px;
+  border-radius: 18px;
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.export-confirmation-box strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.export-confirmation-box p {
+  margin: 0;
+  line-height: 1.6;
+}
+
 .export-action-card {
   width: 100%;
   display: flex;
@@ -974,6 +1178,8 @@ select {
 }
 
 @media (max-width: 850px) {
+  .export-layout,
+  .export-model-grid,
   .export-stats {
     grid-template-columns: 1fr;
   }
